@@ -4,7 +4,7 @@ import Quiz from "./components/Quiz";
 import Settings from "./components/Settings";
 
 const App = () => {
-  const [gameStarted, setGameStarted] = useState(false);
+  const [gameStarted, setGameStarted] = useState(true);
   const [quizSettings, setQuizSettings] = useState({
     category: "",
     difficulty: "",
@@ -24,7 +24,7 @@ const App = () => {
   return (
     <main>
       {gameStarted ? (
-        <Quiz quizSettings={quizSettings} />
+        <Quiz quizSettings={quizSettings} handleGameStart={handleGameStart} />
       ) : (
         <Settings
           quizSettings={quizSettings}

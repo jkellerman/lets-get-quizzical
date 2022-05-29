@@ -17,3 +17,34 @@
   padding: 0.25em 1.25em;
   cursor: pointer;
 }
+
+.selected {
+  background: #d6dbf5;
+  border: 1px solid #d6dbf5;
+  font-size: 0.64rem;
+  border-radius: 7.71px;
+  margin-right: 0.75rem;
+  padding: 0.25em 1.25em;
+  cursor: pointer;
+}
+
+.show-answer_correct {
+  background: #94d7a2;
+  border: 1px solid #94d7a2;
+  font-size: 0.64rem;
+  border-radius: 7.71px;
+  margin-right: 0.75rem;
+  padding: 0.25em 1.25em;
+  cursor: pointer;
+}
+
+.show-answer_incorrect {
+  background: #f8bcbc;
+  border: 1px solid #f8bcbc;
+  font-size: 0.64rem;
+  border-radius: 7.71px;
+  margin-right: 0.75rem;
+  padding: 0.25em 1.25em;
+  cursor: pointer;
+  opacity: 0.5;
+}

@@ -3,8 +3,15 @@ import { nanoid } from "nanoid";
 import getQuestions from "../api/getQuestions";
 import Question from "./Question";
 
-const Quiz = ({ quizSettings }) => {
+const Quiz = ({ quizSettings, handleGameStart }) => {
   const [questions, setQuestions] = useState([]);
+  const [count, setCount] = useState(0);
+  const [isGameOver, setIsGameOver] = useState(false);
+
+  const allQuestionsAnswered = questions.every(
+    (question) =>
+      question.selectedAnswer !== "" && question.selectedAnswer.length > 0
+  );
 
   useEffect(() => {
     getQuestions(quizSettings).then((questions) => {
@@ -12,10 +19,48 @@ const Quiz = ({ quizSettings }) => {
         questions.map((question) => ({
           ...question,
           id: nanoid(),
+          selectedAnswer: "",
+          showAnswer: false,
         }))
       );
     });
-  }, []);
+  }, [quizSettings]);
+
+  useEffect(() => {
+    if (questions.length !== 0 && allQuestionsAnswered) {
+      let count = 0;
+      questions.forEach((question) => {
+        if (question.correct_answer === question.selectedAnswer) {
+          count++;
+        }
+        setCount(count);
+      });
+    }
+  }, [questions, allQuestionsAnswered]);
+
+  const handleSelectedAnswer = (questionId, answer) => {
+    setQuestions((prevQuestions) =>
+      prevQuestions.map((question) =>
+        question.id === questionId
+          ? { ...question, selectedAnswer: answer }
+          : question
+      )
+    );
+  };
+
+  const checkAnswers = () => {
+    if (allQuestionsAnswered) {
+      setIsGameOver(true);
+      setQuestions((prevQuestions) =>
+        prevQuestions.map((question) => ({ ...question, showAnswer: true }))
+      );
+    }
+  };
+
+  const playAgain = () => {
+    setIsGameOver(false);
+    handleGameStart();
+  };
 
   const questionElements = questions.map((question) => (
     <Question
@@ -24,10 +69,30 @@ const Quiz = ({ quizSettings }) => {
       question={question.question}
       correctAnswer={question.correct_answer}
       incorrectAnswers={question.incorrect_answers}
+      selectedAnswer={question.selectedAnswer}
+      showAnswer={question.showAnswer}
+      handleSelectedAnswer={handleSelectedAnswer}
     />
   ));
 
-  return <>{questionElements}</>;
+  return (
+    <>
+      {questionElements}
+      <div className="check-answers__container">
+        {isGameOver && (
+          <div className="score">You scored {count}/5 correct answers</div>
+        )}
+        {allQuestionsAnswered && (
+          <button
+            className="check-btn"
+            onClick={isGameOver ? playAgain : checkAnswers}
+          >
+            {isGameOver ? "Play again" : "Check Answers"}
+          </button>
+        )}
+      </div>
+    </>
+  );
 };
 
 export default Quiz;
