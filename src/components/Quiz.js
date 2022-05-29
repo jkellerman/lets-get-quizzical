@@ -23,7 +23,7 @@ const Quiz = () => {
       id={question.id}
       question={question.question}
       correctAnswer={question.correct_answer}
-      incorrectAnswer={question.incorrect_answer}
+      incorrectAnswers={question.incorrect_answers}
     />
   ));
 
