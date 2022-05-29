@@ -3,11 +3,17 @@ import { nanoid } from "nanoid";
 
 const Question = (props) => {
   const incorrectAnswers = props.incorrectAnswers.map((answer) => {
-    return <button key={nanoid()}>{decode(answer)}</button>;
+    return (
+      <button className="answers" key={nanoid()}>
+        {decode(answer)}
+      </button>
+    );
   });
 
   const correctAnswer = (
-    <button key={nanoid()}>{decode(props.correctAnswer)}</button>
+    <button className="answers" key={nanoid()}>
+      {decode(props.correctAnswer)}
+    </button>
   );
 
   incorrectAnswers.push(correctAnswer);

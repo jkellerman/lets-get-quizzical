@@ -1,0 +1,19 @@
+.question-container {
+  border-bottom: 1px solid #dbdef0;
+  padding: 1rem 0;
+}
+
+.question {
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.answers {
+  background: white;
+  font-size: 0.64rem;
+  border: 1px solid black;
+  border-radius: 7.71px;
+  margin-right: 0.75rem;
+  padding: 0.25em 1.25em;
+  cursor: pointer;
+}
