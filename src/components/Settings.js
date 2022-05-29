@@ -1,20 +1,4 @@
-import { useState } from "react";
-
-const Settings = ({ handleGameStart }) => {
-  const [quizSettings, setQuizSettings] = useState({
-    category: "",
-    difficulty: "",
-    type: "",
-  });
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setQuizSettings((prevQuizSettings) => ({
-      ...prevQuizSettings,
-      [name]: value,
-    }));
-  };
-
+const Settings = ({ quizSettings, handleGameStart, handleChange }) => {
   return (
     <div className="settings-container">
       <h1>Let's Get Quizzical</h1>

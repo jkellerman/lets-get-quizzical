@@ -1,17 +1,36 @@
 import "./styles/main.scss";
+import { useState } from "react";
 import Quiz from "./components/Quiz";
 import Settings from "./components/Settings";
-import { useState } from "react";
 
 const App = () => {
   const [gameStarted, setGameStarted] = useState(false);
+  const [quizSettings, setQuizSettings] = useState({
+    category: "",
+    difficulty: "",
+    type: "",
+  });
+
   const handleGameStart = () => setGameStarted((prevState) => !prevState);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setQuizSettings((prevQuizSettings) => ({
+      ...prevQuizSettings,
+      [name]: value,
+    }));
+  };
+
   return (
     <main>
       {gameStarted ? (
-        <Quiz handleGameStart={handleGameStart} />
+        <Quiz quizSettings={quizSettings} />
       ) : (
-        <Settings handleGameStart={handleGameStart} />
+        <Settings
+          quizSettings={quizSettings}
+          handleGameStart={handleGameStart}
+          handleChange={handleChange}
+        />
       )}
     </main>
   );

@@ -3,11 +3,11 @@ import { nanoid } from "nanoid";
 import getQuestions from "../api/getQuestions";
 import Question from "./Question";
 
-const Quiz = () => {
+const Quiz = ({ quizSettings }) => {
   const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
-    getQuestions().then((questions) => {
+    getQuestions(quizSettings).then((questions) => {
       return setQuestions(
         questions.map((question) => ({
           ...question,
