@@ -89,20 +89,18 @@ const Quiz = ({ quizSettings, handleGameStart, handleError }) => {
 
   return (
     <>
-      <>{questionElements}</>
+      <div className="questions-container">{questionElements}</div>
       <div className="check-answers__container">
         {isGameOver && (
           <div className="score">You scored {count}/5 correct answers</div>
         )}
 
-        {checkAllQuestionsAnswered && (
-          <button
-            className="check-btn"
-            onClick={isGameOver ? playAgain : checkAnswers}
-          >
-            {isGameOver ? "Play again" : "Check Answers"}
-          </button>
-        )}
+        <button
+          className={checkAllQuestionsAnswered ? "check-btn" : "hidden"}
+          onClick={isGameOver ? playAgain : checkAnswers}
+        >
+          {isGameOver ? "Play again" : "Check Answers"}
+        </button>
       </div>
     </>
   );

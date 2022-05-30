@@ -1,4 +1,15 @@
+h1,
+p {
+  margin-bottom: 1rem;
+}
+
+p {
+  font-weight: 600;
+}
+
 .settings-container {
+  margin: 0 auto;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,4 +19,37 @@
 form {
   display: flex;
   flex-direction: column;
+}
+
+label,
+select {
+  margin-bottom: 1rem;
+  font-family: inherit;
+}
+
+label {
+  font-weight: 600;
+}
+
+select {
+  outline: none;
+  border: none;
+  box-shadow: 0 0 7px 1px hsl(220, 20%, 76%);
+  border-radius: 5px;
+  background: #fff;
+  font-weight: 600;
+  color: hsl(207, 26%, 17%);
+}
+
+.start-btn {
+  background: #4d5b9e;
+  color: #f5f7fb;
+  font-size: 0.64rem;
+  align-self: center;
+  border: none;
+  border-radius: 7.71px;
+  padding: 1.25em 1.75em;
+  cursor: pointer;
+  font-weight: 700;
+  font-family: inherit;
 }

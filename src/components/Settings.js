@@ -14,7 +14,6 @@ const Settings = ({
       )}
       <form>
         <label htmlFor="category">Select Category:</label>
-        <br />
         <select
           id="category"
           value={quizSettings.category}
@@ -49,7 +48,6 @@ const Settings = ({
         </select>
 
         <label htmlFor="difficulty">Select Difficulty:</label>
-        <br />
         <select
           id="difficulty"
           value={quizSettings.difficulty}
@@ -63,7 +61,6 @@ const Settings = ({
         </select>
 
         <label htmlFor="type">Select Type:</label>
-        <br />
         <select
           id="type"
           value={quizSettings.type}

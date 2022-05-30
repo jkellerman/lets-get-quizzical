@@ -1,0 +1,29 @@
+.light-mode {
+  body {
+    background: #fff;
+    color: hsl(207, 26%, 17%);
+  }
+
+  .question-container {
+    border-bottom: 1px solid #dbdef0;
+  }
+
+  .answers {
+    background: #fff;
+    border: 1px solid #fff;
+    box-shadow: 0 0 3px 1px hsl(220, 20%, 76%);
+    color: hsl(207, 26%, 17%);
+  }
+
+  .check-btn,
+  .start-btn {
+    background: #4d5b9e;
+    color: #f5f7fb;
+  }
+
+  select {
+    box-shadow: 0 0 7px 1px hsl(220, 20%, 76%);
+    background: #fff;
+    color: hsl(207, 26%, 17%);
+  }
+}

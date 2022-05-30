@@ -2,6 +2,7 @@ import "./styles/main.scss";
 import { useState } from "react";
 import Quiz from "./components/Quiz";
 import Settings from "./components/Settings";
+import Header from "./components/Header";
 
 const App = () => {
   const [gameStarted, setGameStarted] = useState(false);
@@ -25,22 +26,25 @@ const App = () => {
   };
 
   return (
-    <main>
-      {gameStarted ? (
-        <Quiz
-          quizSettings={quizSettings}
-          handleGameStart={handleGameStart}
-          handleError={handleError}
-        />
-      ) : (
-        <Settings
-          quizSettings={quizSettings}
-          handleGameStart={handleGameStart}
-          handleChange={handleChange}
-          questionsError={questionsError}
-        />
-      )}
-    </main>
+    <>
+      <Header />
+      <main>
+        {gameStarted ? (
+          <Quiz
+            quizSettings={quizSettings}
+            handleGameStart={handleGameStart}
+            handleError={handleError}
+          />
+        ) : (
+          <Settings
+            quizSettings={quizSettings}
+            handleGameStart={handleGameStart}
+            handleChange={handleChange}
+            questionsError={questionsError}
+          />
+        )}
+      </main>
+    </>
   );
 };
 
