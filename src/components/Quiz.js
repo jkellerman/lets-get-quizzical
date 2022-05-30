@@ -7,6 +7,8 @@ const Quiz = ({ quizSettings, handleGameStart, handleError }) => {
   const [questions, setQuestions] = useState([]);
   const [count, setCount] = useState(0);
   const [isGameOver, setIsGameOver] = useState(false);
+  const [checkAllQuestionsAnswered, setCheckAllQuestionsAnswered] =
+    useState(false);
 
   const allQuestionsAnswered = questions.every(
     (question) =>
@@ -35,6 +37,7 @@ const Quiz = ({ quizSettings, handleGameStart, handleError }) => {
 
   useEffect(() => {
     if (questions.length !== 0 && allQuestionsAnswered) {
+      setCheckAllQuestionsAnswered(true);
       let count = 0;
       questions.forEach((question) => {
         if (question.correct_answer === question.selectedAnswer) {
@@ -91,12 +94,15 @@ const Quiz = ({ quizSettings, handleGameStart, handleError }) => {
         {isGameOver && (
           <div className="score">You scored {count}/5 correct answers</div>
         )}
-        <button
-          className="check-btn"
-          onClick={isGameOver ? playAgain : checkAnswers}
-        >
-          {isGameOver ? "Play again" : "Check Answers"}
-        </button>
+
+        {checkAllQuestionsAnswered && (
+          <button
+            className="check-btn"
+            onClick={isGameOver ? playAgain : checkAnswers}
+          >
+            {isGameOver ? "Play again" : "Check Answers"}
+          </button>
+        )}
       </div>
     </>
   );
