@@ -1,7 +1,17 @@
-const Settings = ({ quizSettings, handleGameStart, handleChange }) => {
+const Settings = ({
+  quizSettings,
+  handleGameStart,
+  handleChange,
+  questionsError,
+}) => {
   return (
     <div className="settings-container">
       <h1>Let's Get Quizzical</h1>
+      {questionsError ? (
+        <p>Oops! No questions here, adjust your settings</p>
+      ) : (
+        <p>Test your knowledge on your favourite subjects!</p>
+      )}
       <form>
         <label htmlFor="category">Select Category:</label>
         <br />

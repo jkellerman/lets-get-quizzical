@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import getQuestions from "../api/getQuestions";
 import Question from "./Question";
 
-const Quiz = ({ quizSettings, handleGameStart }) => {
+const Quiz = ({ quizSettings, handleGameStart, handleError }) => {
   const [questions, setQuestions] = useState([]);
   const [count, setCount] = useState(0);
   const [isGameOver, setIsGameOver] = useState(false);
@@ -15,6 +15,13 @@ const Quiz = ({ quizSettings, handleGameStart }) => {
 
   useEffect(() => {
     getQuestions(quizSettings).then((questions) => {
+      if (questions.length === 0) {
+        handleGameStart();
+        handleError(true);
+        return;
+      } else {
+        handleError(false);
+      }
       return setQuestions(
         questions.map((question) => ({
           ...question,
@@ -24,7 +31,7 @@ const Quiz = ({ quizSettings, handleGameStart }) => {
         }))
       );
     });
-  }, [quizSettings]);
+  }, [quizSettings, handleGameStart, handleError]);
 
   useEffect(() => {
     if (questions.length !== 0 && allQuestionsAnswered) {
@@ -39,13 +46,15 @@ const Quiz = ({ quizSettings, handleGameStart }) => {
   }, [questions, allQuestionsAnswered]);
 
   const handleSelectedAnswer = (questionId, answer) => {
-    setQuestions((prevQuestions) =>
-      prevQuestions.map((question) =>
-        question.id === questionId
-          ? { ...question, selectedAnswer: answer }
-          : question
-      )
-    );
+    if (!isGameOver) {
+      setQuestions((prevQuestions) =>
+        prevQuestions.map((question) =>
+          question.id === questionId
+            ? { ...question, selectedAnswer: answer }
+            : question
+        )
+      );
+    }
   };
 
   const checkAnswers = () => {
@@ -77,19 +86,17 @@ const Quiz = ({ quizSettings, handleGameStart }) => {
 
   return (
     <>
-      {questionElements}
+      <>{questionElements}</>
       <div className="check-answers__container">
         {isGameOver && (
           <div className="score">You scored {count}/5 correct answers</div>
         )}
-        {allQuestionsAnswered && (
-          <button
-            className="check-btn"
-            onClick={isGameOver ? playAgain : checkAnswers}
-          >
-            {isGameOver ? "Play again" : "Check Answers"}
-          </button>
-        )}
+        <button
+          className="check-btn"
+          onClick={isGameOver ? playAgain : checkAnswers}
+        >
+          {isGameOver ? "Play again" : "Check Answers"}
+        </button>
       </div>
     </>
   );

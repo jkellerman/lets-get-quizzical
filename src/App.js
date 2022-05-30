@@ -4,7 +4,8 @@ import Quiz from "./components/Quiz";
 import Settings from "./components/Settings";
 
 const App = () => {
-  const [gameStarted, setGameStarted] = useState(true);
+  const [gameStarted, setGameStarted] = useState(false);
+  const [questionsError, setQuestionsError] = useState(false);
   const [quizSettings, setQuizSettings] = useState({
     category: "",
     difficulty: "",
@@ -12,6 +13,8 @@ const App = () => {
   });
 
   const handleGameStart = () => setGameStarted((prevState) => !prevState);
+
+  const handleError = (boolean) => setQuestionsError(boolean);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -24,12 +27,17 @@ const App = () => {
   return (
     <main>
       {gameStarted ? (
-        <Quiz quizSettings={quizSettings} handleGameStart={handleGameStart} />
+        <Quiz
+          quizSettings={quizSettings}
+          handleGameStart={handleGameStart}
+          handleError={handleError}
+        />
       ) : (
         <Settings
           quizSettings={quizSettings}
           handleGameStart={handleGameStart}
           handleChange={handleChange}
+          questionsError={questionsError}
         />
       )}
     </main>

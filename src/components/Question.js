@@ -1,12 +1,13 @@
-import { decode } from "html-entities";
 import { nanoid } from "nanoid";
+import { decode } from "html-entities";
 
-const Question = (props) => {
+export default function Question(props) {
   const incorrectAnswers = props.incorrectAnswers.map((answer) => {
     const incorrectAnswersClassName = `${
       props.selectedAnswer === answer ? "selected" : "answers"
-    } ${
-      props.showAnser &&
+    } 
+    ${
+      props.showAnswer &&
       props.selectedAnswer === answer &&
       "show-answer_incorrect"
     }`;
@@ -23,7 +24,7 @@ const Question = (props) => {
 
   const correctAnswerClassName = `${
     props.selectedAnswer === props.correctAnswer ? "selected" : "answers"
-  } ${props.showAnser && "show-answer_correct"}`;
+  } ${props.showAnswer && "show-answer_correct"}`;
 
   const correctAnswer = (
     <button
@@ -36,16 +37,14 @@ const Question = (props) => {
   );
 
   incorrectAnswers.push(correctAnswer);
-  const sortedAnswers = incorrectAnswers.sort((a, b) =>
+  const sortedAnswerElements = incorrectAnswers.sort((a, b) =>
     a.props.children.localeCompare(b.props.children)
   );
 
   return (
     <div className="question-container">
       <div className="question">{decode(props.question)}</div>
-      {sortedAnswers}
+      {sortedAnswerElements}
     </div>
   );
-};
-
-export default Question;
+}
