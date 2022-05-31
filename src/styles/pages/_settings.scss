@@ -1,3 +1,5 @@
+@use "../abstracts/" as a;
+
 h1,
 p {
   margin-bottom: 1rem;
@@ -5,6 +7,9 @@ p {
 
 p {
   font-weight: 600;
+  @include a.mobile {
+    text-align: center;
+  }
 }
 
 .error-message {
@@ -18,11 +23,19 @@ p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @include a.mobile {
+    margin: 4rem auto 0;
+    height: unset;
+  }
 }
 
 form {
   display: flex;
   flex-direction: column;
+  @include a.mobile {
+    max-width: 95%;
+    margin-bottom: 2rem;
+  }
 }
 
 label,
