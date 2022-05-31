@@ -32,6 +32,7 @@ label {
 }
 
 select {
+  padding: 0.5rem;
   outline: none;
   border: none;
   box-shadow: 0 0 7px 1px hsl(220, 20%, 76%);
@@ -39,6 +40,7 @@ select {
   background: #fff;
   font-weight: 600;
   color: hsl(207, 26%, 17%);
+  cursor: pointer;
 }
 
 .start-btn {

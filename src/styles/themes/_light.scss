@@ -1,8 +1,6 @@
 .light-mode {
-  body {
-    background: #fff;
-    color: hsl(207, 26%, 17%);
-  }
+  background: #fff;
+  color: hsl(207, 26%, 17%);
 
   .question-container {
     border-bottom: 1px solid #dbdef0;
@@ -25,5 +23,15 @@
     box-shadow: 0 0 7px 1px hsl(220, 20%, 76%);
     background: #fff;
     color: hsl(207, 26%, 17%);
+  }
+
+  .show-answer_correct {
+    background: #94d7a2;
+    border: 1px solid #94d7a2;
+  }
+
+  .show-answer_incorrect {
+    background: #f8bcbc;
+    border: 1px solid #f8bcbc;
   }
 }
