@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# Let's get Quizzical
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is an upgraded version of the solo challenge "Quizzical" provided by Scrimba.
+[Challenge](https://scrimba.com/learn/learnreact/react-section-4-solo-project-co24f49bea8aace7c174082c8).
 
-## Available Scripts
+The Figma design gave an idea of how the application should work. However, I decided to take it up a notch and give the client the ability to choose what type of question they would like to answer as well as the difficulty and topic. In addition, I added a theme toggle that will automatically load dark theme if the client has their browser settings set to dark. Any changes made to the theme via the toggle button will then be saved to local storage and the selected theme will load on their next visit.
 
-In the project directory, you can run:
+## Table of contents
 
-### `npm start`
+- [Links](#links)
+- [Built with](#built-with)
+- [Continued development](#continued-development)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Links
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Solution URL: [Solution](https://github.com/jkellerman/lets-get-quizzical)
+- Live Site URL: [Live Site](https://lets-get-quizzical.netlify.app/)
 
-### `npm test`
+### Built with
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- SCSS
+- [React](https://reactjs.org/) - JS library
+- [OpenTDB](https://opentdb.com/api_config.php) - Open Trivia Database API
 
-### `npm run build`
+### Continued development
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The theme I went with was very simple, the purpose of this was to focus more on my react logic and making API calls. For future development, I could take it up a notch by make this app more game-like, meaning more eye catching colors, music and sounds for selecting buttons. I could also add in levels, for example if all easy questions for a category are answered correctly, the client can then move onto the medium questions.
