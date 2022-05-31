@@ -5,6 +5,8 @@ This is an upgraded version of the solo challenge "Quizzical" provided by Scrimb
 
 The Figma design gave an idea of how the application should work. However, I decided to take it up a notch and give the client the ability to choose what type of question they would like to answer as well as the difficulty and topic. In addition, I added a theme toggle that will automatically load dark theme if the client has their browser settings set to dark. Any changes made to the theme via the toggle button will then be saved to local storage and the selected theme will load on their next visit.
 
+A few options will fail to make an API call as there are no questions available. For example, if you select Books, Hard & True/False, it will fail. If this happens you will be prompted to adjust your settings.
+
 ## Table of contents
 
 - [Links](#links)
