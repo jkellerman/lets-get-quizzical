@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const darkModeQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -26,9 +28,14 @@ const Header = () => {
 
   return (
     <header>
-      <span className="theme-toggle" onClick={themeToggle}>
-        {theme === "dark-mode" ? "light mode" : "dark mode"}
-      </span>
+      <div className="theme-toggle" onClick={themeToggle}>
+        {theme === "dark-mode" ? (
+          <FontAwesomeIcon icon={faSun} />
+        ) : (
+          <FontAwesomeIcon icon={faMoon} />
+        )}
+        {theme === "dark-mode" ? `light mode` : `dark mode`}
+      </div>
     </header>
   );
 };

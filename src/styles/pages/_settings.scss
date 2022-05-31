@@ -7,6 +7,10 @@ p {
   font-weight: 600;
 }
 
+.error-message {
+  color: var(--error-message);
+}
+
 .settings-container {
   margin: 0 auto;
   height: 100vh;
@@ -35,17 +39,17 @@ select {
   padding: 0.5rem;
   outline: none;
   border: none;
-  box-shadow: 0 0 7px 1px hsl(220, 20%, 76%);
+  box-shadow: var(--light-mode-box-shadow);
   border-radius: 5px;
-  background: #fff;
+  background: var(--light-mode-background);
   font-weight: 600;
-  color: hsl(207, 26%, 17%);
+  color: var(--button-text);
   cursor: pointer;
 }
 
 .start-btn {
-  background: #4d5b9e;
-  color: #f5f7fb;
+  background: var(--light-mode-button-bg);
+  color: var(--light-mode-button-text);
   font-size: 0.64rem;
   align-self: center;
   border: none;

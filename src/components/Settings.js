@@ -8,7 +8,9 @@ const Settings = ({
     <div className="settings-container">
       <h1>Let's Get Quizzical</h1>
       {questionsError ? (
-        <p>Oops! No questions here, adjust your settings</p>
+        <p className="error-message">
+          Oops! No questions here, adjust your settings
+        </p>
       ) : (
         <p>Test your knowledge on your favourite subjects!</p>
       )}

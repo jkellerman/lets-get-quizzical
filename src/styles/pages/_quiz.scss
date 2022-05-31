@@ -1,15 +1,27 @@
+@use "../abstracts/" as a;
+
+main {
+  @include a.mobile {
+    width: 100%;
+    max-width: 700px;
+    padding: 2rem 2rem;
+  }
+}
+
 .questions-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 4rem auto 2rem;
-  padding: 0 4.4375rem;
+  margin: 0 auto;
   width: 100%;
   max-width: 800px;
+  @include a.tablet {
+    padding: 2rem;
+  }
 }
 
 .question-container {
-  border-bottom: 1px solid #dbdef0;
+  border-bottom: 1px solid var(--light-mode-question-border);
   padding: 1rem 0;
 }
 
@@ -19,46 +31,62 @@
 }
 
 .answers {
-  background: #fff;
+  background: --var(--light-mode-background);
   font-size: 0.64rem;
-  border: 1px solid #fff;
+  border: 1px solid --var(--light-mode-background);
   border-radius: 7.71px;
   margin-right: 0.75rem;
   padding: 0.25em 1.25em;
   cursor: pointer;
-  box-shadow: 0 0 3px 1px hsl(220, 20%, 76%);
-  color: hsl(207, 26%, 17%);
+  box-shadow: var(--light-mode-answer-box-shadow);
+  color: var(--light-mode-answers-text);
+  @include a.mobile {
+    margin-bottom: 0.5rem;
+    display: block;
+  }
 }
 
 .selected {
-  background: #d6dbf5;
-  border: 1px solid #d6dbf5;
+  background: var(--selected);
+  border: 1px solid var(--selected);
   font-size: 0.64rem;
   border-radius: 7.71px;
   margin-right: 0.75rem;
   padding: 0.25em 1.25em;
   cursor: pointer;
+  @include a.mobile {
+    margin-bottom: 0.5rem;
+    display: block;
+  }
 }
 
 .show-answer_correct {
-  background: #94d7a2;
-  border: 1px solid #94d7a2;
+  background: var(--correct-answer);
+  border: 1px solid var(--correct-answer);
   font-size: 0.64rem;
   border-radius: 7.71px;
   margin-right: 0.75rem;
   padding: 0.25em 1.25em;
   cursor: pointer;
+  @include a.mobile {
+    margin-bottom: 0.5rem;
+    display: block;
+  }
 }
 
 .show-answer_incorrect {
-  background: #f8bcbc;
-  border: 1px solid #f8bcbc;
+  background: var(--light-mode-incorrect);
+  border: 1px solid var(--light-mode-incorrect);
   font-size: 0.64rem;
   border-radius: 7.71px;
   margin-right: 0.75rem;
   padding: 0.25em 1.25em;
   cursor: pointer;
   opacity: 0.5;
+  @include a.mobile {
+    margin-bottom: 0.5rem;
+    display: block;
+  }
 }
 
 .check-answers__container {
@@ -67,6 +95,9 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  @include a.mobile {
+    margin-bottom: 1rem;
+  }
 }
 
 .score {
@@ -75,8 +106,8 @@
 }
 
 .check-btn {
-  background: #4d5b9e;
-  color: #f5f7fb;
+  background: var(--light-mode-button-bg);
+  color: var(--button-text);
   font-size: 0.64rem;
   align-self: center;
   border: none;
@@ -89,16 +120,4 @@
 
 .hidden {
   visibility: hidden;
-}
-
-@media (max-width: 450px) {
-  main {
-    height: 100vh;
-    width: 100%;
-    max-width: 700px;
-    padding: 2rem 2rem;
-  }
-  .answers {
-    display: block;
-  }
 }
