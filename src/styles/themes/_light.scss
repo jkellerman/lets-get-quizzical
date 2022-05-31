@@ -9,7 +9,7 @@
   .answers {
     background: var(--light-mode-background);
     border: 1px solid var(--light-mode-background);
-    box-shadow: 0 0 3px 1px var(--light-mode-answer-box-shadow);
+    box-shadow: var(--light-mode-answer-box-shadow);
     color: var(--light-mode-text);
   }
 
