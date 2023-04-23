@@ -31,15 +31,15 @@ main {
 }
 
 .answers {
-  background: --var(--light-mode-background);
+  background: transparent;
   font-size: 0.64rem;
-  border: 1px solid --var(--light-mode-background);
+  border: 1px solid white;
   border-radius: 7.71px;
   margin-right: 0.75rem;
   padding: 0.25em 1.25em;
   cursor: pointer;
   box-shadow: var(--light-mode-answer-box-shadow);
-  color: var(--light-mode-answers-text);
+  color: white;
   @include a.mobile {
     margin-bottom: 0.5rem;
     display: block;

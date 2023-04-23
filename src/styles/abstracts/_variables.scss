@@ -1,15 +1,15 @@
 :root {
-  --light-mode-text: hsl(200, 15%, 8%);
-  --light-mode-background: hsl(0, 0%, 100%);
-  --light-mode-select-bg: hsla(0, 0%, 98%, 0.838);
+  --light-mode-text: white;
+  --light-mode-background: rgb(100, 0, 123);
+  --light-mode-select-bg: rgb(100, 0, 123);
   --light-mode-question-border: hsl(231, 41%, 90%);
   --light-mode-answer-box-shadow: 0 0 3px 1px hsl(220, 20%, 76%);
   --light-mode-box-shadow: 0 0 7px 1px hsl(220, 20%, 76%);
   --light-mode-answers-text: hsl(207, 26%, 17%);
   --light-mode-incorrect: hsl(0, 81%, 85%);
-  --light-mode-button-bg: hsl(230, 34%, 46%);
+  --light-mode-button-bg: rgb(100, 0, 123);
 
-  --dark-mode-background: hsl(207, 26%, 17%);
+  --dark-mode-background: rgb(100, 0, 123);
   --dark-mode-question-border: hsl(209, 23%, 22%);
   --dark-mode-select-bg: hsl(209, 23%, 22%);
   --dark-mode-answers-box-shadow: 0 0 7px 1px hsl(210, 25%, 13%);
@@ -17,7 +17,7 @@
   --dark-mode-correct-answer-text: hsl(209, 23%, 22%);
   --dark-mode-incorrect: hsl(0, 100%, 78%);
 
-  --selected: hsl(230, 61%, 90%);
+  --selected: white;
   --correct-answer: hsl(133, 46%, 71%);
   --error-message: hsl(0, 100%, 50%);
   --button-text: hsl(220, 43%, 97%);
